@@ -11,7 +11,7 @@ graph TD
     C -- No --> G{Inability to process due to patient details?};
 
     G -- Yes --> H[SPoA team emails requesting patient detail check];
-    H --> I[Email subject: [ACTION REQUIRED]];
+    H --> I[Email subject: &#91;ACTION REQUIRED&#93;];
     I --> J[You check/confirm patient details against GP records];
     J --> K[You resend updated referral to SPoA team];
 
