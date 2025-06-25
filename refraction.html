@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ufonia Position Statement: Post-Operative Cataract Pathway</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .section-title { font-size: 1.75rem; font-weight: 600; margin-bottom: 1rem; color: #0369a1; } /* text-sky-700 */
+        .subsection-title { font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #075985; } /* text-sky-800 */
+        .content-text { font-size: 1rem; line-height: 1.6; color: #334155; } /* text-slate-700 */
+        .nav-link { padding: 0.5rem 1rem; border-radius: 0.375rem; transition: background-color 0.3s, color 0.3s; white-space: nowrap; }
+        .nav-link.active { background-color: #0ea5e9; color: white; } /* bg-sky-500 */
+        .nav-link:not(.active):hover { background-color: #e0f2fe; } /* bg-sky-100 */
+        .accordion-button { background-color: #f1f5f9; /* bg-slate-100 */ border: 1px solid #cbd5e1; /* border-slate-300 */ padding: 0.75rem 1rem; width: 100%; text-align: left; font-weight: 500; border-radius: 0.375rem; cursor: pointer; transition: background-color 0.3s; display: flex; justify-content: space-between; align-items: center; }
+        .accordion-button:hover { background-color: #e2e8f0; } /* bg-slate-200 */
+        .accordion-content { padding: 1rem; border: 1px solid #cbd5e1; border-top: 0; border-radius: 0 0 0.375rem 0.375rem; display: none; background-color: #f8fafc; /* bg-slate-50 */ }
+        .tab-button { padding: 0.5rem 1rem; border-radius: 0.375rem 0.375rem 0 0; cursor: pointer; background-color: #e2e8f0; /* bg-slate-200 */ border: 1px solid #cbd5e1; border-bottom: 0; font-weight: 500; color: #334155; /* text-slate-700 */ }
+        .tab-button.active { background-color: #ffffff; /* bg-white */ border-bottom: 1px solid #ffffff; position: relative; top: 1px; color: #0369a1; /* text-sky-700 */ }
+        .tab-content { padding: 1.5rem; border: 1px solid #cbd5e1; border-radius: 0 0.375rem 0.375rem 0.375rem; display: none; background-color: #ffffff; }
+        .tab-content.active { display: block; }
+        .chart-container { position: relative; width: 100%; max-width: 300px; margin-left: auto; margin-right: auto; height: 250px; max-height: 250px; } /* Adjusted for better mobile view */
+        @media (min-width: 640px) { .chart-container { max-width: 320px; height: 260px; max-height: 260px; } }
+        @media (min-width: 768px) { .chart-container { max-width: 350px; height: 280px; max-height: 280px; } }
+        .reference-link { color: #0ea5e9; text-decoration: underline; } /* text-sky-500 */
+        .reference-link:hover { color: #0369a1; } /* text-sky-700 */
+        .icon-style { display: inline-block; margin-right: 0.5rem; color: #0ea5e9; /* text-sky-500 */ font-size: 1.25em; vertical-align: middle; }
+        /* Ensure header content doesn't overlap on small screens */
+        header nav .flex-col > div { width: 100%; }
+        header nav .flex-col .flex { justify-content: center; }
+
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased">
+
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <div class="flex flex-col sm:flex-row justify-between items-center">
+                <h1 class="text-2xl font-bold text-sky-700 mb-2 sm:mb-0 whitespace-nowrap">Ufonia Position Statement</h1>
+                <div id="nav-links" class="flex flex-wrap justify-center sm:justify-end gap-x-1 sm:gap-x-2 gap-y-1 mt-2 sm:mt-0">
+                    <a href="#overview" class="nav-link">Overview</a>
+                    <a href="#approach" class="nav-link">Our Approach</a>
+                    <a href="#rationale" class="nav-link">Rationale</a>
+                    <a href="#howitworks" class="nav-link">How it Works</a>
+                    <a href="#faq" class="nav-link">FAQ</a>
+                    <a href="#references" class="nav-link">References</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <section id="overview" class="mb-12 p-6 bg-white rounded-lg shadow-lg">
+            <h2 class="section-title flex items-center"><span class="icon-style">📄</span>Overview</h2>
+            <p class="content-text">
+                This statement outlines Ufonia's position regarding post-operative cataract refraction data and its availability for the Minimum Cataract Dataset for National Audit (NOD). Our approach is designed to optimise patient care, streamline clinical pathways, and ensure efficient resource utilisation within the NHS, while maintaining robust outcome monitoring and supporting professional development requirements. We aim to provide clarity on how Ufonia balances comprehensive data needs with practical clinical delivery and patient experience.
+            </p>
+        </section>
+
+        <section id="approach" class="mb-12 p-6 bg-white rounded-lg shadow-lg">
+            <h2 class="section-title flex items-center"><span class="icon-style">💡</span>Our Approach to Data Collection</h2>
+            <p class="content-text mb-6">
+                Ufonia's strategy prioritises patient satisfaction and Patient-Reported Outcome Measures (PROMs), alongside the capability to collect relevant post-operative refraction data for NOD submission. This comprehensive approach is supported by robust evidence.
+            </p>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-sky-50 p-4 rounded-md border border-sky-200">
+                    <h3 class="subsection-title flex items-center"><span class="icon-style">🎯</span>PROMs as a Priority</h3>
+                    <p class="content-text">We believe the patient's visual function and overall satisfaction post-surgery are critical success indicators. High-quality PROMs data aligns with best practices, emphasising the patient's lived experience.</p>
+                </div>
+                <div class="bg-sky-50 p-4 rounded-md border border-sky-200">
+                    <h3 class="subsection-title flex items-center"><span class="icon-style">📊</span>Refraction Data Accessibility</h3>
+                    <p class="content-text">Refraction data remains accessible via routine General Ophthalmic Services (GOS) sight tests. Patients can choose to share their refractive results directly through Ufonia's SightSnap tool, empowering them and ensuring data privacy.</p>
+                </div>
+                <div class="bg-sky-50 p-4 rounded-md border border-sky-200">
+                    <h3 class="subsection-title flex items-center"><span class="icon-style">⚙️</span>Streamlined Pathways</h3>
+                    <p class="content-text">Our approach avoids duplication of effort, meaning ophthalmologists are not required to undertake additional refraction data collection beyond existing GOS frameworks.</p>
+                </div>
+                <div class="bg-sky-50 p-4 rounded-md border border-sky-200">
+                    <h3 class="subsection-title flex items-center"><span class="icon-style">🛡️</span>Patient-Led Sharing</h3>
+                    <p class="content-text">SightSnap facilitates patient-led data sharing, ensuring compliance with the Data Protection Act and giving patients control over their information.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="rationale" class="mb-12 p-6 bg-white rounded-lg shadow-lg">
+            <h2 class="section-title flex items-center"><span class="icon-style">🤔</span>Rationale for Targeted Data Collection</h2>
+            <p class="content-text mb-6">
+                Our rationale for not mandating comprehensive refraction data collection for every patient is informed by evidence, international models, and a focus on efficiency and patient benefit.
+            </p>
+            <div class="grid md:grid-cols-2 gap-8 items-center"> <div>
+                    <h3 class="subsection-title flex items-center"><span class="icon-style">🌍</span>International Models & Evidence</h3>
+                    <p class="content-text mb-2">The Scandinavian model demonstrates effective outcome monitoring through targeted data collection (e.g., one month per year), significantly reducing cost and resource burden without compromising care quality [1, 3].</p>
+                    <p class="content-text mb-2">Modern calibration technology ensures high accuracy in lens selection, and audit data shows minimal need for refractive adjustments in the second eye based on the first.</p>
+                    <h3 class="subsection-title mt-6 flex items-center"><span class="icon-style">🏛️</span>NOD and NICE Context</h3>
+                    <p class="content-text">
+                        While NICE suggests processes for completing the UK Minimum Cataract Dataset [4], participation in the NOD audit is not mandated. The NOD currently does not publish routine refraction data due to insufficient collection [6]. Our approach aligns with these realities, focusing on valuable PROMs and patient-consented refraction data.
+                    </p>
+                </div>
+                 <div class="mt-6 md:mt-0"> <h3 class="subsection-title flex items-center"><span class="icon-style">📈</span>Data Collection Insights</h3>
+                    <p class="content-text mb-2">We anticipate collecting refraction data from approximately 15% of patients via GOS/SightSnap, a meaningful sample comparable to collecting one month's data. With patient consent and sharing via SightSnap, there's potential to capture 100% of outcomes.</p>
+                    <div class="chart-container my-4 p-2 border border-slate-200 rounded-lg bg-slate-50">
+                        <canvas id="dataCollectionChart"></canvas>
+                    </div>
+                    <p class="text-sm text-center text-slate-600">Illustrative data collection potential.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="howitworks" class="mb-12 p-6 bg-white rounded-lg shadow-lg">
+            <h2 class="section-title flex items-center"><span class="icon-style">🛠️</span>How It Works: SightSnap & GOS Integration</h2>
+            <p class="content-text mb-6">
+                Ufonia's pathway integrates with existing General Ophthalmic Services (GOS) and utilizes the SightSnap tool to empower patients and provide data for various stakeholders. Here's how it works for different groups:
+            </p>
+            <div class="mb-4 border-b border-slate-300 flex flex-wrap">
+                <button class="tab-button active" data-tab="patient">For Patients</button>
+                <button class="tab-button" data-tab="surgeon">For Surgeons</button>
+                <button class="tab-button" data-tab="trainee">For Trainees</button>
+            </div>
+
+            <div id="patient" class="tab-content active">
+                <h3 class="subsection-title text-sky-700">Patient Journey with SightSnap</h3>
+                <ol class="list-decimal list-inside content-text space-y-3 pl-4">
+                    <li><strong>Post-Surgery Vision Change:</strong> If you experience any change in vision after your cataract surgery, you are advised to seek an assessment from an optometrist.</li>
+                    <li><strong>GOS Sight Test:</strong> This assessment is typically covered under a GOS sight test, which includes refraction. This is an existing NHS-funded service for eligible patients [7, 8].</li>
+                    <li><strong>Request Your Data:</strong> You are entitled to request your refractive status (prescription) from your optometrist free of charge.</li>
+                    <li><strong>Share via SightSnap (Optional):</strong> You can then choose to share a photo of your prescription with Ufonia's Dora platform using the SightSnap tool. This is your choice and helps improve overall care quality and research.</li>
+                    <li><strong>Benefits:</strong> Your shared data contributes to your surgeon's understanding of outcomes and helps the wider NHS. You maintain control over your health information.</li>
+                </ol>
+            </div>
+            <div id="surgeon" class="tab-content">
+                <h3 class="subsection-title text-sky-700">Surgeon & Appraisal Data</h3>
+                 <p class="content-text mb-3">Ufonia's platform provides valuable data for surgeons' appraisals and outcome monitoring:</p>
+                <ul class="list-disc list-inside content-text space-y-3 pl-4">
+                    <li><strong>PROMs Data:</strong> Dora collects PROMs using Cat-PROM5, creating a change score from pre- to post-operation. This robust data can be used for appraisals.</li>
+                    <li><strong>Patient-Shared Refraction Data:</strong> Refractive outcomes shared by patients via SightSnap are converted to structured data and returned to providers. This markedly reduces manual data extraction.</li>
+                    <li><strong>Combined Insights:</strong> Refraction data can be paired with PROM information for a comprehensive view of surgical outcomes.</li>
+                    <li><strong>Reduced Burden:</strong> No requirement for routine, surgeon-led refraction data collection outside of standard GOS pathways.</li>
+                </ul>
+            </div>
+            <div id="trainee" class="tab-content">
+                <h3 class="subsection-title text-sky-700">Trainee Requirements & Data Access</h3>
+                <p class="content-text mb-3">Trainees can obtain necessary post-operative outcome data for their training requirements:</p>
+                <ul class="list-disc list-inside content-text space-y-3 pl-4">
+                    <li><strong>Access to Shared Data:</strong> Refractive outcomes shared by patients via SightSnap contribute to the pool of data available for trainees.</li>
+                    <li><strong>PROMs for Outcomes:</strong> Cat-PROM5 data collected via Dora also provides crucial outcome measures.</li>
+                    <li><strong>Sufficient Sample:</strong> The combination of patient-shared refraction and PROMs data can help compile the necessary information for training portfolios (e.g., 50 consecutive surgeries).</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="faq" class="mb-12 p-6 bg-white rounded-lg shadow-lg">
+            <h2 class="section-title flex items-center"><span class="icon-style">❓</span>Frequently Asked Questions</h2>
+            <div class="space-y-4"> <div>
+                    <button class="accordion-button">
+                        <span>Is Ufonia completely ignoring refraction data?</span>
+                        <span class="plus-minus text-xl font-semibold text-sky-600">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="content-text">No. Patients can get their refraction recorded during their standard GOS sight test. Ufonia's SightSnap allows patients to share this data if they choose. Our approach focuses on not duplicating effort within existing funded pathways.</p>
+                    </div>
+                </div>
+                <div>
+                    <button class="accordion-button">
+                        <span>What if a patient's vision changes after surgery?</span>
+                        <span class="plus-minus text-xl font-semibold text-sky-600">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="content-text">Patients are advised to seek an optometrist assessment. This is covered under GOS for eligible patients experiencing vision changes [8], and includes refraction. This data can then be shared via SightSnap.</p>
+                    </div>
+                </div>
+                 <div>
+                    <button class="accordion-button">
+                        <span>How representative is the ~15% refraction data sample?</span>
+                        <span class="plus-minus text-xl font-semibold text-sky-600">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="content-text">This is comparable to collecting data from one month of patients, providing a meaningful sample without overwhelming staff, similar to the Scandinavian model [1, 3]. Patient sharing via SightSnap can increase this significantly. Ufonia will actively encourage patients to share data by highlighting the benefits.</p>
+                    </div>
+                </div>
+                <div>
+                    <button class="accordion-button">
+                        <span>How does this affect surgeons' appraisals or trainees' data needs?</span>
+                        <span class="plus-minus text-xl font-semibold text-sky-600">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="content-text">Dora collects robust PROMs (Cat-PROM5) for outcome analysis. Patient-shared refraction data via SightSnap provides additional structured data. This combination offers valuable information for appraisals and trainee requirements without mandating extra work for surgeons.</p>
+                    </div>
+                </div>
+                <div>
+                    <button class="accordion-button">
+                        <span>What about premium lenses?</span>
+                        <span class="plus-minus text-xl font-semibold text-sky-600">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="content-text">This position statement primarily addresses standard cataract surgery in the UK NHS. For premium lenses, refraction data is more significant for demonstrating precise refractive outcomes and the value of the premium service. Specific pathways for premium lenses may differ.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="references" class="p-6 bg-white rounded-lg shadow-lg">
+            <h2 class="section-title flex items-center"><span class="icon-style">📚</span>References</h2>
+            <ol class="list-decimal list-inside content-text space-y-2">
+                <li>Bro T, Behndig A, Viberg A, et al. Two point four million cataract surgeries: 30 years with the Swedish National Cataract Register, 1992-2021. <em>J Cataract Refract Surg</em>. 2023;49(8):879-884. <a href="https://pubmed.ncbi.nlm.nih.gov/37185666/" target="_blank" rel="noopener noreferrer" class="reference-link">PMID: 37185666</a></li>
+                <li>Rein AP, Lundström M, Dickman MM, et al. Assessing Quality of Vision in Cataract Surgery: A Randomized Trial of Digital vs. Paper-Based Questionnaires. <em>J Cataract Refract Surg</em>. 2025 Feb 25 (Epub ahead of print). <a href="https://pubmed.ncbi.nlm.nih.gov/39999203/" target="_blank" rel="noopener noreferrer" class="reference-link">PMID: 39999203</a></li>
+                <li>Bro T, Lundström M, Kugelberg M, et al. 2,6 miljoner kataraktoperationer [2.6 million cataract surgeries: 31 years with the Swedish National Cataract Register 1992-2022]. <em>Lakartidningen</em>. 2024;121:23158. <a href="https://pubmed.ncbi.nlm.nih.gov/38369864/" target="_blank" rel="noopener noreferrer" class="reference-link">PMID: 38369864</a></li>
+                <li>NICE Guideline NG77: Cataracts in adults: management - Section 1.9 Postoperative assessment. <a href="https://www.nice.org.uk/guidance/ng77/chapter/1-Recommendations#postoperative-assessment" target="_blank" rel="noopener noreferrer" class="reference-link">View Guideline</a></li>
+                <li>Joint statement on post-operative cataract care - The College of Optometrists and The Royal College of Ophthalmologists. <a href="https://www.college-optometrists.org/news/2021/june/joint-statement-on-post-operative-cataract-care" target="_blank" rel="noopener noreferrer" class="reference-link">View Statement</a></li>
+                <li>National Ophthalmology Database (NOD) AMD Audit - Royal College of Ophthalmologists. <a href="https://www.rcophth.ac.uk/news-views/national-ophthalmology-database-amd-audit/" target="_blank" rel="noopener noreferrer" class="reference-link">View Audit Info</a></li>
+                <li>NHS. Adults over 60 years of age, those under 16 and those between 16 - 18 in full time education and those with specific defined medical conditions or in receipt of certain benefits. <a href="https://www.nhs.uk/nhs-services/opticians/free-nhs-eye-tests-and-optical-vouchers/" target="_blank" rel="noopener noreferrer" class="reference-link">NHS Eye Test Eligibility</a></li>
+                <li>NHS. How often can I have a free NHS eye test? <a href="https://www.nhs.uk/nhs-services/opticians/how-often-can-i-have-a-free-nhs-eye-test/#:~:text=If%20you're%20eligible%20for,sight%20tests%20and%20optical%20vouchers" target="_blank" rel="noopener noreferrer" class="reference-link">NHS Eye Test Frequency</a></li>
+                <li>The College of Optometrists. Clinical Guidance: Post-operative cataract care. <a href="https://www.college-optometrists.org/clinical-guidance/supplementary-guidance/post-operative-cataract-care" target="_blank" rel="noopener noreferrer" class="reference-link">View Guidance</a></li>
+            </ol>
+        </section>
+    </main>
+
+    <footer class="text-center py-8 mt-12 bg-slate-800 text-slate-300 text-sm">
+        <p>&copy; <span id="currentYear"></span> Ufonia. All rights reserved.</p>
+        <p class="mt-1">This interactive statement provides an overview of Ufonia's position. For specific enquiries, please contact Ufonia directly.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Smooth scrolling and active nav link
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = Array.from(document.querySelectorAll('main section[id]')); // Ensure only sections with IDs are selected
+            const headerOffset = 80; // Height of the sticky header + some padding
+
+            function changeNav() {
+                let currentSectionId = '';
+                const scrollPosition = window.scrollY + headerOffset;
+
+                sections.forEach(section => {
+                    if (section.offsetTop <= scrollPosition && (section.offsetTop + section.offsetHeight) > scrollPosition) {
+                        currentSectionId = section.id;
+                    }
+                });
+                
+                // If no section is actively in view (e.g., at the very top or bottom of the page),
+                // try to determine the "closest" one or default.
+                if (!currentSectionId && sections.length > 0) {
+                    if (window.scrollY < sections[0].offsetTop - headerOffset) {
+                        currentSectionId = sections[0].id; // Default to the first section if scrolled above all
+                    } else if (window.scrollY + window.innerHeight >= document.body.scrollHeight - 20) { // Near bottom
+                        currentSectionId = sections[sections.length - 1].id;
+                    }
+                }
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + currentSectionId) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    if (targetSection) {
+                        // Calculate position considering the sticky header
+                        const elementPosition = targetSection.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - (headerOffset - 10); // -10 for a bit less offset
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Debounce scroll event for performance
+            let scrollTimeout;
+            window.addEventListener('scroll', () => {
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(changeNav, 50); // Adjust delay as needed
+            });
+            changeNav(); // Initial call to set active link
+
+            // Accordion functionality
+            const accordionButtons = document.querySelectorAll('.accordion-button');
+            accordionButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const content = this.nextElementSibling;
+                    const plusMinus = this.querySelector('.plus-minus');
+                    const isOpening = content.style.display !== 'block';
+
+                    // Optional: close other accordions in the same group if needed
+                    // this.closest('.space-y-3').querySelectorAll('.accordion-content').forEach(c => {
+                    //     if (c !== content) c.style.display = 'none';
+                    // });
+                    // this.closest('.space-y-3').querySelectorAll('.accordion-button .plus-minus').forEach(pm => {
+                    //     if (pm !== plusMinus) pm.textContent = '+';
+                    // });
+                    
+                    if (isOpening) {
+                        content.style.display = 'block';
+                        plusMinus.textContent = '−'; // Using a proper minus sign
+                    } else {
+                        content.style.display = 'none';
+                        plusMinus.textContent = '+';
+                    }
+                });
+            });
+
+            // Tab functionality
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    // Deactivate all buttons and hide all content
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+
+                    // Activate clicked button and show its content
+                    this.classList.add('active');
+                    const targetTab = this.getAttribute('data-tab');
+                    const activeContent = document.getElementById(targetTab);
+                    if (activeContent) {
+                        activeContent.classList.add('active');
+                    }
+                });
+            });
+
+            // Chart.js: Data Collection Chart
+            const ctx = document.getElementById('dataCollectionChart');
+            if (ctx) {
+                const dataCollectionChart = new Chart(ctx.getContext('2d'), {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Anticipated GOS/SightSnap (~15%)', 'Additional Potential via Patient Sharing (up to 85%)'],
+                        datasets: [{
+                            label: 'Refraction Data Collection',
+                            data: [15, 85], 
+                            backgroundColor: [
+                                'rgba(56, 189, 248, 0.8)', // sky-400 (more opaque)
+                                'rgba(14, 165, 233, 0.6)'  // sky-500 (slightly less opaque for differentiation)
+                            ],
+                            borderColor: [
+                                'rgba(3, 105, 161, 1)', // darker sky-700 for border
+                                'rgba(2, 132, 199, 1)'  // darker sky-600 for border
+                            ],
+                            borderWidth: 1.5,
+                            hoverOffset: 8
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        animation: {
+                            animateScale: true,
+                            animateRotate: true
+                        },
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    boxWidth: 12,
+                                    padding: 15,
+                                    font: { 
+                                        size: 11,
+                                        family: 'Inter'
+                                    }
+                                }
+                            },
+                            tooltip: {
+                                enabled: true,
+                                backgroundColor: 'rgba(0,0,0,0.75)',
+                                titleFont: { size: 13, family: 'Inter', weight: 'bold' },
+                                bodyFont: { size: 12, family: 'Inter' },
+                                padding: 10,
+                                cornerRadius: 4,
+                                displayColors: true,
+                                boxPadding: 3,
+                                callbacks: {
+                                    label: function(context) {
+                                        let label = context.label || '';
+                                        if (label) {
+                                            label += ': ';
+                                        }
+                                        if (context.parsed !== null) {
+                                            label += context.raw + '%';
+                                            if (context.label.includes('~15%')) {
+                                               label += ' (current estimate from GOS/SightSnap)';
+                                            } else if (context.label.includes('up to 85%')) {
+                                               label += ' (additional potential if all patients share, aiming for 100% total)';
+                                            }
+                                        }
+                                        return label;
+                                    }
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: 'Illustrative Refraction Data Collection',
+                                font: { 
+                                    size: 13, 
+                                    weight: '600',
+                                    family: 'Inter'
+                                },
+                                padding: {
+                                    top: 5,
+                                    bottom: 10
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+            
+            // Set current year in footer
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
+</html> 
