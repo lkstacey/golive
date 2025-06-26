@@ -1,31 +1,13 @@
 ```mermaid
 graph TD
-    A[Complaint Received] --> B{Determine Complaint Type?};
-
-    B -- Inquiry or Legitimate Dora-Related Question --> C[Handle directly through inquiry inbox];
-    B -- Complaint --> D{Route Complaint Appropriately?};
-
-    D -- Treatment Complaint --> E[Direct to Trust PALS];
-    D -- Pathway Complaint --> F[Direct to ICB Complaints Team];
-
-    E --> G[Auto-Reply System];
-    F --> G;
-
-    G --> H{Special Cases?};
-
-    H -- Yes, Unavailable Services --> I[Confirm SPOA site listings];
-    I --> J[Escalate internally: Update & Communicate site details];
-    J --> K[Close the Loop];
-
-    H -- No Special Cases --> K;
-
-    K --> L[Maintain Inquiry Inbox];
-
-    %% Sub-processes/Details (implied from text)
-    E --- M[Standardized reply with PALS contact info];
-    F --- N[Standardized reply with ICB contact info];
-
-    %% Connecting sub-processes to main flow visually if desired, though often implied
-    M -.-> G;
-    N -.-> G;
+    A[Email Received to 
+    SPoA nhs.net account] -- Auto-Reply --> B{Determine Type?};
+    
+    B -- Enquiry or Legitimate 
+    Dora-Related Question --> C[Handle directly through enquiry inbox];
+    B -- Complaint --> D{Is the complaint relating to treatment or pathway/system?};
+    C -- Escalate internally 
+    if required --> K[Close];
+    D -- Treatment Complaint --> E[Direct to Trust PALS & Close];
+    D -- Pathway or System Complaint --> F[Direct to ICB Complaints Team & Close];
 ```
