@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NHS Cataract Pathway Optimisation: A Data-Driven Proposal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .kpi-card {
+            background-color: #ffffff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .kpi-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+        .kpi-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #12156F;
+        }
+        .kpi-label {
+            font-size: 1rem;
+            color: #6D7C93;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <div id="content-to-print">
+        <header class="bg-[#12156F] text-white p-6 md:p-10 text-center shadow-lg relative">
+            <div class="absolute top-4 right-4">
+                <button id="download-pdf" class="bg-[#4D65FF] hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg shadow-md transition-colors duration-300 disabled:bg-gray-400">
+                    Download PDF
+                </button>
+            </div>
+            <h1 class="text-3xl md:text-5xl font-extrabold mb-2">Optimising the Cataract Referral Pathway</h1>
+            <p class="text-lg md:text-xl font-light max-w-4xl mx-auto">A Data-Driven Proposal to Release Clinical Capacity by Maximising Pre-Assessment Efficiency</p>
+        </header>
+
+        <main class="container mx-auto p-4 md:p-8">
+
+            <section id="diagnosis" class="mb-12">
+                <div class="bg-white rounded-lg shadow-md p-6 md:p-8">
+                    <h2 class="text-3xl font-bold text-[#12156F] mb-4 text-center">The Challenge: A Hidden Inefficiency</h2>
+                    <p class="text-lg text-center max-w-3xl mx-auto mb-8 text-[#6D7C93]">
+                        An analysis of 1,014 cataract referrals reveals a critical opportunity. The core issue isn't appointment non-attendance, but rather a significant portion of patients arriving without having completed their pre-assessment. This forces clinicians to spend valuable time on data gathering instead of high-value clinical decision-making.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div>
+                             <div class="chart-container mx-auto" style="height: 350px; max-height: 450px;">
+                                <canvas id="referralOutcomesChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="text-center md:text-left">
+                            <div class="bg-[#FFFBEB] border-l-4 border-amber-500 p-6 rounded-lg shadow-inner">
+                                <p class="text-5xl md:text-7xl font-extrabold text-amber-600">33%</p>
+                                <p class="text-xl md:text-2xl font-semibold text-amber-800 mt-2">Of Patients Arrive Without Pre-Assessment Data</p>
+                                <p class="mt-4 text-[#6D7C93]">This represents 1,011 patients annually who miss out on the 12-15 minute time-saving benefit per appointment, creating a major opportunity cost and reducing overall clinic efficiency.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="solution" class="mb-12">
+                 <h2 class="text-3xl font-bold text-[#12156F] mb-6 text-center">The Solution: A 3-Point Strategy for Full Efficiency</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="kpi-card">
+                        <div class="text-5xl font-bold text-[#4D65FF]">1</div>
+                        <h3 class="text-xl font-bold mt-4 mb-2 text-[#12156F]">Triage 'Unsure' Patients</h3>
+                        <p class="text-[#6D7C93]">Divert the 4% of patients who are unsure about surgery from consultant clinics to dedicated nurse-led calls, saving specialist time for those ready to proceed.</p>
+                    </div>
+                     <div class="kpi-card">
+                        <div class="text-5xl font-bold text-[#4D65FF]">2</div>
+                        <h3 class="text-xl font-bold mt-4 mb-2 text-[#12156F]">Capitalise on Existing Success</h3>
+                        <p class="text-[#6D7C93]">Continue providing comprehensive pre-assessment reports for the 67% of patients who complete the process, securing the significant time-saving benefits already being realised.</p>
+                    </div>
+                     <div class="kpi-card">
+                        <div class="text-5xl font-bold text-[#4D65FF]">3</div>
+                        <h3 class="text-xl font-bold mt-4 mb-2 text-[#12156F]">Close the Information Gap</h3>
+                        <p class="text-[#6D7C93]">Implement a robust contact strategy to engage the 33% of patients who currently miss pre-assessment, unlocking the final, major piece of the efficiency puzzle.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="impact" class="mb-12">
+                <h2 class="text-3xl font-bold text-[#12156F] mb-6 text-center">Projected Annual Impact: Quantifiable Gains</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+                    <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center">
+                         <h3 class="text-2xl font-bold text-[#4D65FF] mb-4">Patient Preparedness</h3>
+                         <p class="text-base mb-4 text-[#6D7C93]">By improving the pre-assessment contact rate to 95%, we can ensure almost every patient arrives at their appointment fully prepared for a productive consultation.</p>
+                        <p class="kpi-value">960</p>
+                        <p class="kpi-label">Additional Patients Assessed Pre-Clinic Annually</p>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center">
+                        <h3 class="text-2xl font-bold text-[#4D65FF] mb-4">Total Capacity Release</h3>
+                        <p class="text-base mb-4 text-[#6D7C93]">Combining savings from all initiatives unlocks a substantial amount of clinical time that can be reinvested into direct patient care.</p>
+                        <p class="kpi-value">600-734</p>
+                        <p class="kpi-label">Hours of Clinical Time Released Annually</p>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center">
+                         <h3 class="text-2xl font-bold text-[#4D65FF] mb-4">Workforce Efficiency</h3>
+                         <p class="text-base mb-4 text-[#6D7C93]">This released capacity is equivalent to adding a significant portion of a full-time clinician back into the system, without any new hires.</p>
+                        <p class="kpi-value">0.42 FTE</p>
+                        <p class="kpi-label">Max Equivalent Annual Workforce Capacity Unlocked</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="deep-dive" class="mb-12">
+                <h2 class="text-3xl font-bold text-[#12156F] mb-6 text-center">A Deeper Look at the Savings</h2>
+                 <div class="grid grid-cols-1 md:grid-cols-1 gap-8">
+                     <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-xl font-bold mb-4 text-[#4D65FF] text-center">Unlocking Total Potential: Sources of Time Savings</h3>
+                        <p class="mb-4 text-center max-w-3xl mx-auto text-[#6D7C93]">The total annual time saving is a combination of three key initiatives. While the current process already saves a significant amount of time, the largest single opportunity for improvement comes from successfully engaging the cohort of patients who currently miss their pre-assessment calls.</p>
+                        <div class="chart-container mx-auto" style="height: 400px; max-height: 450px;">
+                            <canvas id="timeSavingsChart"></canvas>
+                        </div>
+                     </div>
+                 </div>
+            </section>
+
+            <footer class="bg-[#12156F] text-white p-6 mt-12 rounded-lg shadow-lg text-center">
+                <h2 class="text-2xl font-bold mb-2">Recommendations</h2>
+                <p class="max-w-3xl mx-auto">
+                    We recommend immediate actions to enhance patient awareness of the pre-operative assessment calls to reduce the "Pre-assessment Incomplete" cohort. The goal is to achieve a 95% contact rate to unlock significant clinical capacity, creating a more efficient and streamlined cataract service.
+                </p>
+            </footer>
+
+        </main>
+    </div>
+
+    <script>
+        document.getElementById('download-pdf').addEventListener('click', function () {
+            const element = document.getElementById('content-to-print');
+            const button = this;
+            const originalWidth = element.style.width;
+
+            // Set a fixed width for consistent rendering and provide user feedback
+            element.style.width = '820px';
+            button.textContent = 'Generating...';
+            button.disabled = true;
+
+            const opt = {
+                margin:       0.3,
+                filename:     'NHS-Cataract-Pathway-Optimisation.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { 
+                    scale: 3, 
+                    useCORS: true, 
+                    logging: false, 
+                    letterRendering: true,
+                    width: 820
+                },
+                jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+            };
+
+            // Use a promise chain to handle cleanup after PDF generation
+            html2pdf().from(element).set(opt).save()
+                .then(() => {
+                    element.style.width = originalWidth;
+                    button.textContent = 'Download PDF';
+                    button.disabled = false;
+                })
+                .catch((error) => {
+                    console.error('PDF generation failed:', error);
+                    // Ensure cleanup happens even on error
+                    element.style.width = originalWidth;
+                    button.textContent = 'Download PDF';
+                    button.disabled = false;
+                });
+        });
+
+        const ufoniaPalette = {
+            primary: '#12156F',
+            highlight: '#4D65FF',
+            text: '#6D7C93',
+            secondary: '#F5DDCE',
+            accentOrange: '#ED8936',
+            amber: '#FBBF24',
+            lightGrey: '#E5E7EB'
+        };
+
+        function wrapLabels(label, maxWidth) {
+            const words = label.split(' ');
+            let line = '';
+            const lines = [];
+            for (let i = 0; i < words.length; i++) {
+                const testLine = line + words[i] + ' ';
+                if (testLine.length > maxWidth && i > 0) {
+                    lines.push(line.trim());
+                    line = words[i] + ' ';
+                } else {
+                    line = testLine;
+                }
+            }
+            lines.push(line.trim());
+            return lines;
+        }
+
+        const tooltipTitleCallback = function(tooltipItems) {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+              return label.join(' ');
+            } else {
+              return label;
+            }
+        };
+
+        const referralData = {
+            labels: [
+                wrapLabels('Data Gathered (Complex)', 16),
+                wrapLabels('Data Gathered (Non-Complex)', 16),
+                wrapLabels('Pre-assessment Incomplete', 16),
+                wrapLabels('Unsuitable for Assessment Call', 16),
+                wrapLabels("Patient Unsure/Declined", 16),
+                wrapLabels('Technical Error', 16)
+            ],
+            datasets: [{
+                label: 'Number of Referrals (Mar-Jun 2025)',
+                data: [410, 163, 337, 59, 43, 2],
+                backgroundColor: [
+                    ufoniaPalette.primary,
+                    ufoniaPalette.highlight,
+                    ufoniaPalette.accentOrange,
+                    ufoniaPalette.text,
+                    ufoniaPalette.amber,
+                    ufoniaPalette.lightGrey
+                ],
+                borderColor: '#ffffff',
+                borderWidth: 2
+            }]
+        };
+
+        const referralOutcomesCtx = document.getElementById('referralOutcomesChart').getContext('2d');
+        new Chart(referralOutcomesCtx, {
+            type: 'doughnut',
+            data: referralData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                animation: {
+                    duration: 0 // Disable animation for better PDF rendering
+                },
+                plugins: {
+                    legend: {
+                        position: 'right',
+                        labels: {
+                            boxWidth: 20,
+                            padding: 20,
+                             font: {
+                                size: 12
+                            },
+                            color: ufoniaPalette.text
+                        }
+                    },
+                    title: {
+                        display: true,
+                        text: 'Pre-Assessment Outcome Breakdown (Total: 1,014)',
+                        font: {
+                            size: 18,
+                            weight: 'bold'
+                        },
+                        color: ufoniaPalette.primary,
+                        padding: { top: 10, bottom: 20 }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        }
+                    }
+                },
+                cutout: '60%'
+            }
+        });
+        
+        const timeSavingsData = {
+            labels: ['Max Annual Hours Saved'],
+            datasets: [
+                {
+                    label: 'Currently Realised Savings',
+                    data: [429.75],
+                    backgroundColor: ufoniaPalette.highlight,
+                    stack: 'Stack 0',
+                },
+                {
+                    label: "Untapped Potential (from 'Incomplete' group)",
+                    data: [240],
+                    backgroundColor: ufoniaPalette.accentOrange,
+                    stack: 'Stack 0',
+                },
+                {
+                    label: "Savings from 'Unsure' Patient Triage",
+                    data: [64.5],
+                    backgroundColor: ufoniaPalette.primary,
+                    stack: 'Stack 0',
+                }
+            ]
+        };
+
+        const timeSavingsCtx = document.getElementById('timeSavingsChart').getContext('2d');
+        new Chart(timeSavingsCtx, {
+            type: 'bar',
+            data: timeSavingsData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                animation: {
+                    duration: 0 // Disable animation for better PDF rendering
+                },
+                scales: {
+                    x: {
+                        stacked: true,
+                         title: {
+                            display: true,
+                            text: 'Total Annual Hours of Clinical Time Released',
+                            color: ufoniaPalette.text
+                        },
+                        ticks: { color: ufoniaPalette.text },
+                        grid: { color: '#e0e0e0' }
+                    },
+                    y: {
+                        stacked: true,
+                        display: false
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: {
+                           color: ufoniaPalette.text
+                        }
+                    },
+                    title: {
+                        display: true,
+                        text: 'Annual Clinic Hours Released by Initiative',
+                         font: {
+                            size: 16,
+                            weight: 'bold'
+                        },
+                         color: ufoniaPalette.primary
+                    },
+                     tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        }
+                    }
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
