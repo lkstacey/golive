@@ -12,7 +12,7 @@ graph TD
 
     G -- Yes --> H[SPoA team emails requesting patient detail check];
     H --> I[Email subject: &#91;ACTION REQUIRED&#93;];
-    I --> J[You check/confirm patient details against GP records];
+    I --> J[Check, confirm and update patient details];
     J --> K[You resend updated referral to SPoA team];
 
     K --> L{SPoA team receives correct patient details within 5 working days?};
