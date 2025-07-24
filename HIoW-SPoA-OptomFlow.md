@@ -18,6 +18,6 @@ graph TD
     K --> L{SPoA team receives correct patient details within 5 working days?};
 
     L -- Yes --> D;
-    L -- No --> M[Referral rejected];
+    L -- No --> M[Referral returned to referring optometrist];
     M --> F;
 ```
